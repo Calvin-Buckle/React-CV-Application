@@ -19,8 +19,8 @@ function App() {
           <h2>Personal Details</h2>
           <div id="personalDetailsContainer">
             <form>
-              <label htmlFor="FullName"><h4>FullName</h4></label>
-              <input type="text" id='FullName' name='Fullname'/>
+              <label htmlFor="Fullname"><h4>Fullname</h4></label>
+              <input type="text" id='Fullname' name='Fullname'/>
 
               <label htmlFor="Email"><h4>Email</h4></label>
               <input type="email" id="Email" name='Email' />
@@ -49,9 +49,10 @@ function App() {
      
 
 
-      <div id="cvContainer">
-        <div id="cvHeader">
-        <div className="fullNameResult"></div>
+      <div id="cvContainer" className='container'>
+        <div id="cvHeader" className='container'>
+         
+        <div className="fullNameResult"> <h1>Calvin</h1></div>
         <div id="cvHeaderDetails">
           <div id="emailResult"></div>
           <div id="phoneResult"></div>
@@ -59,9 +60,9 @@ function App() {
         </div>
         </div>
 
-    <div id="cvEducationContainer">
-      <div id="cvEducationHeader"><h1>Education</h1></div>
-      <div id="cvEducationDetailsContainer">
+    <div id="cvEducationContainer" className='container'>
+      <div id="cvEducationHeader" className='container'><h1>Education</h1></div>
+      <div id="cvEducationDetailsContainer" className='container'>
         <div id="edDetailsLeft">
           <div id="degreeResult"></div>
           <div id="schoolResult"></div>
@@ -76,9 +77,9 @@ function App() {
     </div>
 
 
-    <div id="cvExperienceContainer">
-      <div id="cvExperienceHeader"><h1>Experience</h1></div>
-      <div id="cvExperienceDetialsContainer">
+    <div id="cvExperienceContainer" className='container'>
+      <div id="cvExperienceHeader" className='container'><h1>Experience</h1></div>
+      <div id="cvExperienceDetialsContainer" className='container'>
         <div id="expDetailsLeft">
           <div id="companyResult"></div>
           <div id="jobResult"></div>
@@ -90,9 +91,9 @@ function App() {
           <div id="expToResult"></div>
         </div>
       </div>
-      <div id="cvDescriptionContainer"></div>
+  
     </div>
-
+    <div id="cvDescriptionContainer" className='container'><h1>Description</h1></div>
       </div>
 
       </div>
