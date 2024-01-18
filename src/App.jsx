@@ -1,7 +1,26 @@
 import './index.css';
+import { useState } from 'react';
+import { EducationForm } from './Forms';
+import { ExperienceForm } from './Forms';
+
+
+
+
+
+
 
 
 function App() {
+
+const [educationForms, setEducationForms] = useState([]);
+const [experienceForms, setExperienceForms] = useState([]);
+
+const handleAddEducation = () =>{
+setEducationForms([<EducationForm key={educationForms.length} />])
+}
+const handleAddExperience = () => {
+  setExperienceForms([<ExperienceForm key={experienceForms.length} />]);
+};
 
 
   return (
@@ -38,11 +57,16 @@ function App() {
           <div id="detailsButtonsMain">
           <div className="detailsButtonsContainers">
             <h4>Education</h4>
-            <button className="add">Add</button>
+           <p>{educationForms}</p>
+            <button className="add" id='educationAdd' onClick={ handleAddEducation }>Add</button>
           </div>
           <div className="detailsButtonsContainers">
             <h4>Experience</h4>
-          <button className="add">Add</button>
+          
+            <div>{experienceForms}</div>
+            
+          <button className="add" id='experienceAdd' onClick={ handleAddExperience }>Add</button>
+          
           </div>
           </div>
         </div>
@@ -52,7 +76,7 @@ function App() {
       <div id="cvContainer" className='container'>
         <div id="cvHeader" className='container'>
          
-        <div className="fullNameResult"> <h1>Calvin</h1></div>
+        <div className="fullNameResult"> <h1>Name Result</h1></div>
         <div id="cvHeaderDetails">
           <div id="emailResult"></div>
           <div id="phoneResult"></div>

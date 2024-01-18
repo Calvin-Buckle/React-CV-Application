@@ -33,6 +33,14 @@ button{
     
 }
 
+form{
+    width: fit-content;
+    height: fit-content;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
 #detailsContainer{
     width: 217px;
     padding: 20px;
