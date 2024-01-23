@@ -1,26 +1,32 @@
 import './index.css';
 import { useState } from 'react';
-import { EducationForm } from './Forms';
-import { ExperienceForm } from './Forms';
-
-
-
-
+import { Education } from './components/Forms';
+import { Experience } from './components/Forms';
 
 
 
 
 function App() {
 
-const [educationForms, setEducationForms] = useState([]);
-const [experienceForms, setExperienceForms] = useState([]);
 
-const handleAddEducation = () =>{
-setEducationForms([<EducationForm key={educationForms.length} />])
+const [eduForm, setEduForm] = useState([])
+const [expForm, setExpForm] = useState([])
+
+const [result, setResult] = useState('');
+
+function resultHandler(e){
+  setResult(e.target.value);
 }
-const handleAddExperience = () => {
-  setExperienceForms([<ExperienceForm key={experienceForms.length} />]);
-};
+
+function eduClick(){
+  setEduForm(<Education resultValue={resultHandler}/>)
+}
+
+function expClick(){
+  setExpForm(<Experience resultValue={resultHandler} />)
+}
+
+
 
 
   return (
@@ -57,15 +63,16 @@ const handleAddExperience = () => {
           <div id="detailsButtonsMain">
           <div className="detailsButtonsContainers">
             <h4>Education</h4>
-           <p>{educationForms}</p>
-            <button className="add" id='educationAdd' onClick={ handleAddEducation }>Add</button>
+            <div>{[eduForm]}</div>
+            <button className="add" id='educationAdd' onClick={eduClick}>Add</button>
           </div>
           <div className="detailsButtonsContainers">
             <h4>Experience</h4>
           
-            <div>{experienceForms}</div>
+            <div>{[expForm]}</div>
             
-          <button className="add" id='experienceAdd' onClick={ handleAddExperience }>Add</button>
+          <button className="add" id='experienceAdd' onClick={expClick}
+          >Add</button>
           
           </div>
           </div>
@@ -88,14 +95,14 @@ const handleAddExperience = () => {
       <div id="cvEducationHeader" className='container'><h1>Education</h1></div>
       <div id="cvEducationDetailsContainer" className='container'>
         <div id="edDetailsLeft">
-          <div id="degreeResult"></div>
-          <div id="schoolResult"></div>
-          <div id="addressResult"></div>
+          <div id="degreeResult"><h4>{result}</h4></div>
+          <div id="schoolResult" ><h4>{result}</h4></div>
+          <div id="addressResult"><h4>{result}</h4></div>
         </div>
 
         <div id="edDetailsRight">
-          <div id="eduFromResult"></div>
-          <div id="eduToResult"></div>
+          <div id="eduFromResult"><h4>{result}</h4></div>
+          <div id="eduToResult"><h4>{result}</h4></div>
         </div>
       </div>
     </div>
@@ -105,19 +112,20 @@ const handleAddExperience = () => {
       <div id="cvExperienceHeader" className='container'><h1>Experience</h1></div>
       <div id="cvExperienceDetialsContainer" className='container'>
         <div id="expDetailsLeft">
-          <div id="companyResult"></div>
-          <div id="jobResult"></div>
-          <div id="locationResult"></div>
+          <div id="companyResult"><h4>{result}</h4></div>
+          <div id="jobResult"><h4>{result}</h4></div>
+          <div id="locationResult"><h4>{result}</h4></div>
         </div>
 
         <div id="expDetailsRight">
-          <div id="expFromResult"></div>
-          <div id="expToResult"></div>
+          <div id="expFromResult"><h4>{result}</h4></div>
+          <div id="expToResult"><h4>{result}</h4></div>
         </div>
       </div>
   
     </div>
     <div id="cvDescriptionContainer" className='container'><h1>Description</h1></div>
+    <h4>{result}</h4>
       </div>
 
       </div>
