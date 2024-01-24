@@ -83,12 +83,12 @@ setAddressResult(e.target.value)
 
 function eduClick() {
   const eduKey = generateUniqueKey();
-  setEduForm((prevForms) => [...prevForms, <Education key={eduKey} resultValue={resultHandler} />]);
+  setEduForm(<Education key={eduKey}  />);
 }
 
 function expClick() {
   const expKey = generateUniqueKey();
-  setExpForm((prevForms) => [...prevForms, <Experience key={expKey} resultValue={resultHandler} />]);
+  setExpForm( <Experience key={expKey} resultValue={resultHandler} />);
 }
 
 function generateUniqueKey() {
@@ -97,12 +97,20 @@ function generateUniqueKey() {
 
 
 
-const [formVisible, setFormVisible] = useState(true)
+const [personalVisible, setPersonalVisible] = useState(false)
+const [eduVisible, setEduVisible] = useState(false)
+const [expVisible, setExpVisible] = useState(false)
 
-const toggleFormVisibility = () => {
-  setFormVisible(!formVisible)
+const togglePersonalVisibility = () => {
+  setPersonalVisible(!personalVisible)
+}
+const toggleEduVisibility = () => {
+  setEduVisible(!eduVisible)
 }
 
+const toggleExpVisibility = () => {
+  setExpVisible(!expVisible)
+}
 
 
   return (
@@ -118,7 +126,7 @@ const toggleFormVisibility = () => {
 
         <div id="detailsContainer">
           <h2>Personal Details</h2>
-          <div id="personalDetailsContainer" style={{display: formVisible ? 'block' : 'none' }} >
+          <div id="personalDetailsContainer" style={{display: personalVisible ? 'block' : 'none' }} >
             <form>
               <label htmlFor="Fullname"><h4>Fullname</h4></label>
               <input type="text" id='Fullname'  name='Fullname' onChange={resultHandler}/>
@@ -135,24 +143,26 @@ const toggleFormVisibility = () => {
             </form>
             
           </div>
-          <button className='open' onClick={toggleFormVisibility} >Open</button>
+          <button className='open' onClick={togglePersonalVisibility} >Toggle</button>
 
 
           <div id="detailsButtonsMain">
-          <div className="detailsButtonsContainers">
+          <div className="detailsButtonsContainers" >
             <h4>Education</h4>
-            <div>{[eduForm]}</div>
-            <button className="add" id='educationAdd' onClick={eduClick}>Add</button>
+            <div style={{display: eduVisible ? 'block' : 'none'}}>{<Education  resultValue={resultHandler}/> }</div>
+            {/*verander hier*/}
+           
           </div>
+          <button className="add" id='educationAdd' onClick={toggleEduVisibility} >Toggle</button>
           <div className="detailsButtonsContainers">
             <h4>Experience</h4>
           
-            <div>{[expForm]}</div>
-            
-          <button className="add" id='experienceAdd' onClick={expClick}
-          >Add</button>
+            <div style={{display: expVisible ? 'block' : 'none'}}>{<Experience resultValue={resultHandler}/>}</div>
+            {/*verander hier*/}
+         
           
           </div>
+          <button className="add" id='experienceAdd' onClick={toggleExpVisibility}>Toggle</button>
           </div>
         </div>
      
